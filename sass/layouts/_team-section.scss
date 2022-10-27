@@ -1,0 +1,60 @@
+.team {
+  @media screen and (min-width: $tablet) {
+    @include gridGaps($card-set-gap, $card-set-gap);
+  }
+    
+  @media screen and (min-width: $desktop) {
+    @include gridGaps(0px, $card-set-gap, nowrap);
+  }
+}
+
+.team__item {
+  border-radius: 0px 0px $border-radius $border-radius;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  background-color: $primary-white-color;
+
+  @media screen and (min-width: $tablet) {
+      flex-basis: calc((100% - $card-set-gap)/2);
+    }
+  
+    @media screen and (min-width: $desktop) {
+      flex-basis: calc((100% - 3*$card-set-gap)/4);
+    }
+  
+    &:not(:last-child) {
+      @media screen and (max-width: calc($tablet - 1px)) {
+        margin-bottom: $card-set-gap;
+      }
+    }
+}
+
+.team__photo {
+  width: 100%;
+}
+
+.team__meta {
+  padding-top: $card-set-gap;
+  padding-bottom: 24px;
+  @media screen and (min-width: $desktop) {
+    padding-top: $card-set-gap;
+  }
+
+}
+
+.team__title,
+.team__text {
+  font-size: 16px;
+  line-height: 1.19;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.team__title {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.team__text {
+  margin-bottom: 16px;
+  color: $secondary-text-color;
+}

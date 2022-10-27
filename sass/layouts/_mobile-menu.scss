@@ -1,0 +1,127 @@
+
+.mobile-menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 40px;
+  background-color: $primary-white-color;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  // overflow-y: scroll;
+
+  @include mainAxisAlignment(space-between);
+  flex-direction: column;
+  transform: translateX(100%);
+
+  @include transitionCustom(250ms, transform);
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  @media (min-width: $tablet) {
+    display: none;
+  }
+}
+
+
+.menu-toggle {
+
+  @extend %centeredFlex;
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+.mobile-menu-container & {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: 20;
+}
+  @media (min-width: $tablet) {
+  display: none;
+}
+}
+
+
+
+.mobile-menu__icon-close {
+  fill: currentColor;
+  @include transitionCustom(250ms, fill);
+
+  &:hover, &:focus {
+    fill: $accent-color;
+  }
+
+@media (min-width: $tablet) {
+  display: none;
+}
+}
+  
+.mobile-menu {
+  @include gridGaps(32px, 0px, nowrap);
+  flex-direction: column;
+}
+
+.mobile-menu__link {
+  font-size: 40px;
+  line-height: 1.18;
+  text-decoration: none;
+  color: $primary-text-color;
+  @include transitionCustom(250ms, color);
+
+  &:hover, &:focus {
+    color: $accent-color;
+  }
+}
+
+.mobile-menu__link--current {
+  color: $accent-color;
+}
+
+
+
+.mobile-contacts {
+  @include gridGaps(32px, 0px, nowrap);
+  flex-direction: column;
+  margin-bottom: 64px;
+}
+
+.mobile-contacts__tel {
+  font-size: 34px;
+  line-height: 1.18;
+  text-decoration: none;
+  color: $accent-color;
+}
+
+.mobile-contacts__mail {
+  font-size: 24px;
+  line-height: 1.17;
+  text-decoration: none;
+  color: $secondary-text-color;
+}
+
+.mobile-socials {
+  @include gridGaps(0px, 10px);
+}
+
+.mobile-socials__item:not(:last-child) {
+  border-right: 1px solid $callback-form-border-color;
+}
+
+
+
+.mobile-socials__link {
+  font-size: 18px;
+  line-height: 1.22;
+  text-decoration: none;
+  color: $accent-color;
+  padding-right: 10px;
+}

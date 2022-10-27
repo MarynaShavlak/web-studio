@@ -1,0 +1,116 @@
+.header {
+  border-bottom: 1px solid $header-border-color;
+}
+
+.header__container {
+  position: relative;
+  @include crossAxisAlignment();
+  @media screen and (max-width: $tablet) {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+}
+
+.header__nav {
+  @include crossAxisAlignment();
+}
+
+.menu {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    @include gridGaps(0, 50px, nowrap);
+    margin-left: 88px;
+  }
+  @media screen and (min-width: $desktop) {
+    @include gridGaps(0, 50px, nowrap);
+    margin-left: 93px;
+  }
+  
+}
+
+.contacts {
+  display: none;
+
+  @media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
+    @include gridGaps(10px, 0px);
+    flex-direction: column;
+    margin-left: auto;
+
+    
+  }
+    @media screen and (min-width: $desktop) {
+      @include gridGaps(0, 30px);
+      margin-left: auto;
+    }
+}
+
+.menu__link {
+  @extend %link;
+  @extend %nav-link;
+
+  position: relative;
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  color: $primary-text-color;
+  @include transitionCustom(250ms, color);
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.menu__link--current {
+  color: $accent-color;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: $accent-color;
+  }
+}
+
+.contacts__link {
+  @extend %link;
+  @extend %nav-link;
+  @include crossAxisAlignment();
+  
+  color: $secondary-text-color;
+  @include transitionCustom(250ms, color);
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
+    font-size: 12px;
+    line-height: 1.17;
+  }
+}
+
+.contacts__icon {
+  margin-right: 10px;
+  fill: currentColor;
+}
+
+.contacts__mail-icon {
+    @media screen and (max-width: calc($desktop - 1px)) {
+      width: 14px;
+      height: 10px;
+    }
+}
+
+.contacts__tel-icon {
+    @media screen and (max-width: calc($desktop - 1px)) {
+      width: 10px;
+      height: 14px;
+    }
+}

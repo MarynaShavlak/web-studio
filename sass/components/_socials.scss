@@ -1,0 +1,35 @@
+.socials {
+  @include mainAxisAlignment();
+  column-gap: 10px;
+}
+
+
+.socials__link {
+  @extend %link;
+  @extend %centeredFlex;
+  
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: $primary-icon-color;
+  background-color: $primary-white-color;
+
+  @include transitionCustom(250ms, color, background-color);
+  
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+    background-color: $accent-color;
+  }
+}
+
+.socials__link--theme-dark {
+  color: $primary-white-color;
+  background-color: $dark-socials-color;
+  
+}
+
+.socials__icon {
+  fill: currentColor;
+}

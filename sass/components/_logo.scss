@@ -1,0 +1,22 @@
+.logo {
+  @extend %link;
+  font-family: $secondary-font;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.19;
+  color: $logo-dark-color;
+
+}
+
+
+.logo--dark-theme {
+  @extend %link;
+  display: block;
+  margin-bottom: 20px;
+  color: $primary-white-color;
+}
+
+.logo__web {
+  color: $accent-color;
+}

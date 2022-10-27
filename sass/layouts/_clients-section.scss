@@ -1,0 +1,39 @@
+.clients{
+  @include gridGaps($card-set-gap, $card-set-gap);
+  
+  @media screen and (min-width: $desktop) {
+      @include gridGaps(0px, $card-set-gap, nowrap);
+  }
+}
+
+
+.clients__item {
+  flex-basis: calc((100% - $card-set-gap)/2);
+  @media screen and (min-width: $tablet) {
+      flex-basis: calc((100% - 2 * $card-set-gap)/3);
+  }
+  
+  @media screen and (min-width: $desktop) {
+      flex-basis: calc((100% - 5 * $card-set-gap)/6);
+  }
+  }
+
+.clients__link {
+  @extend %link;
+  @extend %centeredFlex;
+  @include bordered($primary-icon-color, $border-radius);
+  @include transitionCustom(250ms, color, border-color);
+
+  height: 90px;
+  color: $primary-icon-color;
+  
+  &:hover,
+  &:focus {
+    border-color: $accent-color;
+    color: $accent-color;
+  }
+}
+
+.clients__icon {
+  fill: currentColor;
+}

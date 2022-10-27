@@ -1,0 +1,97 @@
+body {
+  font-family: $primary-font;
+  color: $primary-text-color;
+  background-color: $primary-white-color;
+  
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.container {
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @media screen and (min-width: $mobile) {
+    width: 480px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 768px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 1200px;
+  }
+
+  
+}
+
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+@media screen and (min-width: $desktop) {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+
+}
+
+.section--no-padding-top {
+  @media screen and (max-width: calc($desktop - 1px)) {
+      display: none;
+    }
+  padding-top: 0;
+}
+
+
+.section--dark-background {
+  background-color: $second-bg-color;
+}
+
+.section__title {
+  margin-bottom: 30px;
+  font-size: 28px;
+  line-height: 1.18;
+  letter-spacing: 0.03em;
+  text-align: center;
+
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 50px;
+    font-size: 36px;
+    line-height: 1.17;
+    }
+}
+
+.icon {
+  fill: currentColor;
+}

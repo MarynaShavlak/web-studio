@@ -1,0 +1,32 @@
+@mixin mainAxisAlignment($type: center) {
+  display: flex;
+  justify-content: $type;
+}
+
+@mixin crossAxisAlignment($type: center) {
+  display: flex;
+  align-items: $type;
+}
+
+
+@mixin gridGaps($row-gap, $column-gap, $type: wrap) {
+    display: flex;
+    flex-wrap: $type;
+    row-gap: $row-gap;
+    column-gap: $column-gap;
+}
+
+@mixin bordered ($color, $border-radius) {
+  border: 1px solid $color;
+  border-radius: $border-radius;
+}
+
+
+@mixin transitionCustom($time, $properties...) {
+  $transition: ();
+
+  @each $property in $properties {
+    $transition: append($transition, ($property $time cubic-bezier(0.4, 0, 0.2, 1)), $separator: comma);
+  }
+  transition: $transition;
+}

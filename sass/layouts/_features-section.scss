@@ -1,0 +1,57 @@
+.features {
+  @media screen and (min-width: $tablet) {
+    @include gridGaps($card-set-gap, $card-set-gap);
+  }
+
+  @media screen and (min-width: $desktop) {
+    @include gridGaps(0px, $card-set-gap, nowrap);
+  }
+}
+
+
+.features__item {
+   
+  @media screen and (min-width: $tablet) {
+    flex-basis: calc((100% - $card-set-gap)/2);
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-basis: calc((100% - 3*$card-set-gap)/4);
+  }
+
+  &:not(:last-child) {
+    @media screen and (max-width: calc($tablet - 1px)) {
+     margin-bottom: $card-set-gap;
+   }
+  }
+}
+
+
+.features__icon-wrap {
+  @extend %centeredFlex;
+  height: 120px;
+  margin-bottom: 30px;
+
+  border-radius: $border-radius;
+  background-color: $second-bg-color;
+}
+
+.features__icon {
+  width: 70px;
+  height: 70px;
+}
+
+.features__title {
+  @media screen and (max-width: $tablet) {
+    text-align: center;
+  }
+  @extend %subtitle;
+  margin-bottom: 10px;
+}
+
+.features__desc {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: $secondary-text-color;
+}

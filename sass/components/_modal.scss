@@ -1,0 +1,255 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+
+  background-color: $light-overlay-color;
+  opacity: 1;
+  @include transitionCustom(250ms, opacity, visibility);
+
+  @media screen and (max-width: calc($tablet - 1px)) {
+   padding-top: 93px;
+   padding-left: 15px;
+   padding-right: 15px;
+  }
+}
+
+.backdrop--hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  @include transitionCustom(250ms, opacity, visibility);
+  
+}
+
+.modal {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: $border-radius;
+  background: $primary-white-color;
+  transform: scale(1);
+  
+
+  @include transitionCustom(250ms, transform);
+
+  .backdrop--hidden & {
+    transform: scale(0.8);
+  }
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 450px;
+    max-height: 100vh;
+    overflow-y: auto;
+
+    .backdrop--hidden & {
+      transform:translate(-50%, -50%) scale(0.8);
+    }
+  }
+  
+  @media screen and (min-width: $desktop) {
+    width: 528px;
+    min-height: 581px;
+  }
+  
+}
+
+.modal__title {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.03em;
+  @media screen and (min-width: $desktop) {
+    line-height: 1.15;
+  }
+}
+.callback-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.callback-form__user-info {
+  @include gridGaps(10px, 0px);
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.callback-form__field {
+  @include gridGaps(4px, 0px);
+  flex-direction: column;
+}
+
+.callback-form__label {
+  @extend %сallback-label;
+  color: $secondary-text-color;
+}
+
+
+.callback-form__wrap {
+  position: relative;
+  display: block;
+}
+
+
+.callback-form__input {
+  @include bordered($callback-form-border-color, $border-radius);
+  width: 100%;
+  height: 40px;
+  padding-left: 42px;
+  @include transitionCustom(250ms, border-color);
+  
+  &:hover {
+    cursor: pointer;
+  }
+  
+  &:focus {
+    border-color: $accent-color;
+    outline: none;
+  }
+}
+
+.callback-form__comment {
+  width: 100%;
+  height: 120px;
+  resize: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  &::placeholder {
+    @extend %сallback-label;
+    color: $placeholder-color;
+  }
+}
+
+.callback-form__icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  @include transitionCustom(250ms, fill);
+
+  .callback-form__field:focus-within & {
+    fill: $accent-color;
+  }
+}
+
+.callback-form__agreement {
+  @include crossAxisAlignment();
+  margin-bottom: 30px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  color: $secondary-text-color;
+ 
+  // @media screen and (min-width: 320px) {
+  //     flex-wrap: wrap;
+  // }
+
+   @media screen and (min-width: $desktop) {
+    font-size: 14px;
+    line-height: 1.71;
+  }
+}
+
+
+.callback-form__checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.callback-form__checkbox-custom {
+  width: 16px;
+  height: 15px;
+  margin-right: 8px;
+  cursor: pointer;
+  
+  border: 1.5px solid $primary-text-color;
+  border-radius: 2px;
+  fill: $primary-white-color;
+
+  @include transitionCustom(250ms, border-color, background-color, outline-color);
+  
+  .callback-form__checkbox:focus+& {
+    outline: 2px solid $accent-color;
+  }
+
+  .callback-form__checkbox:checked+& {
+    border-color: $accent-color;
+    background-color: $accent-color;
+    outline: none;
+  }
+  
+}
+
+.callback-form__icon-custom {
+  opacity: 0;
+  @include transitionCustom(250ms, opacity);
+
+.callback-form__checkbox:checked+.callback-form__checkbox-custom & {
+  opacity: 1;
+}
+
+}
+
+.callback-form__agreement-link {
+    color: $accent-color;
+}
+
+.callback-form__submit-btn {
+  @extend %button;
+  align-self: center;
+  min-width: 200px;
+  padding-left: 52px;
+  padding-right: 52px;
+  @include transitionCustom(250ms, background-color);
+  
+  &:hover,
+  &:focus {
+    background-color: $btn-active-color;
+  }
+}
+
+.modal__btn-close {
+  @extend %centeredFlex;
+  @include bordered($btn-close-border-color, 50%);
+
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  
+  width: 30px;
+  height: 30px;
+
+  color: $logo-dark-color;
+  background: $primary-white-color;
+  @include transitionCustom(250ms, color);
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
