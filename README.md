@@ -1,4 +1,4 @@
-#🌐💻 Web studio
+# 🌐💻 Web studio
 An individual project "Web Studio" encompasses a professional website consisting of two pages, both of which boast a responsive layout that ensures optimal viewing on multiple devices. The website incorporates an intuitively designed burger menu and modal window, which enable seamless navigation and enhance user experience. The portfolio gallery is thoughtfully curated to showcase a diverse range of works, each accompanied by overlay descriptions that provide visitors with valuable context and information. To further enhance the website's functionality, I also integrated a custom checkbox feature.
 
 ## 📝Features: 
