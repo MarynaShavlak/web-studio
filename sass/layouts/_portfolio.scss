@@ -96,7 +96,7 @@
   width: 100%;
   height: 100%;
   background-color: $accent-overlay-color;
-  overflow: auto;
+  // overflow: auto;
   transform: translateY(100%);
   @include transitionCustom(250ms, transform);
    
