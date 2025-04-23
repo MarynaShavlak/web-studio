@@ -14,7 +14,6 @@ An individual project "Web Studio" encompasses a professional website consisting
 - SASS
 - JavaScript
 - BEM
-- Parcel
 
  ## Demo
 https://github.com/MarynaShavlak/web-studio/assets/111526360/236596f0-0636-4b2b-982b-60f20eb77d6a
